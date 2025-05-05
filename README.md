@@ -1,3 +1,1 @@
-# genai-test
-
-A simple calculator application.
+This is a basic README file.
