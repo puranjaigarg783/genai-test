@@ -1,5 +1,3 @@
-import argparse
-
 def add(x, y):
     return x + y
 
@@ -14,23 +12,32 @@ def divide(x, y):
         return "Cannot divide by zero"
     return x / y
 
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Simple calculator")
-    parser.add_argument("num1", type=float, help="First number")
-    parser.add_argument("num2", type=float, help="Second number")
-    parser.add_argument("operation", type=str, choices=["add", "subtract", "multiply", "divide"], help="Operation to perform")
+while True:
+    print("Select operation:")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Exit")
 
-    args = parser.parse_args()
+    choice = input("Enter choice(1/2/3/4/5): ")
 
-    if args.operation == "add":
-        result = add(args.num1, args.num2)
-    elif args.operation == "subtract":
-        result = subtract(args.num1, args.num2)
-    elif args.operation == "multiply":
-        result = multiply(args.num1, args.num2)
-    elif args.operation == "divide":
-        result = divide(args.num1, args.num2)
+    if choice in ('1', '2', '3', '4'):
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        if choice == '1':
+            print(num1, "+", num2, "=", add(num1, num2))
+
+        elif choice == '2':
+            print(num1, "-", num2, "=", subtract(num1, num2))
+
+        elif choice == '3':
+            print(num1, "*", num2, "=", multiply(num1, num2))
+
+        elif choice == '4':
+            print(num1, "/", num2, "=", divide(num1, num2))
+    elif choice == '5':
+        break
     else:
-        result = "Invalid operation"
-
-    print(f"Result: {result}"
+        print("Invalid input")
